@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  homelinks:
+    build: .
+    container_name: homelinks
+    ports:
+      - 8080:8080
+    volumes:
+      - ./homelinks.json:/root/.config/homelinks.json
+    restart: unless-stopped

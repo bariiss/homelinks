@@ -1,0 +1,26 @@
+[
+ {
+  "Name": "google",
+  "Text": "Google",
+  "URL": "https://www.google.com",
+  "Color": "#4285F4",
+  "TextColor": "white",
+  "AltText": "Search with Google"
+ },
+ {
+  "Name": "facebook",
+  "Text": "Facebook",
+  "URL": "https://www.facebook.com",
+  "Color": "#F48042",
+  "TextColor": "black",
+  "AltText": "Connect with Facebook"
+ },
+ {
+  "Name": "twitter",
+  "Text": "Twitter",
+  "URL": "https://www.twitter.com",
+  "Color": "#F44242",
+  "TextColor": "white",
+  "AltText": "Tweet with Twitter"
+ }
+]

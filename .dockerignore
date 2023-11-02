@@ -1,0 +1,11 @@
+# Ignore everything
+**
+
+# But not these files...
+!*.go
+!go.mod
+!go.sum
+
+# And not these directories...
+!assets/
+!templates/
