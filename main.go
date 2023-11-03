@@ -7,13 +7,16 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"time"
 
+	ratelimit "github.com/JGLTechnologies/gin-rate-limit"
 	"github.com/gin-gonic/gin"
 )
 
 var (
 	configPath = filepath.Join(os.Getenv("HOME"), ".config", "homelinks.json")
 	links      []*Link
+    mw         gin.HandlerFunc
 )
 
 // Link represents a hyperlink with styling and text.
@@ -50,12 +53,30 @@ func init() {
 func main() {
 	r := gin.Default()
 
+	// This makes it so each ip can only make 5 requests per second
+	store := ratelimit.InMemoryStore(&ratelimit.InMemoryOptions{
+		Rate:  time.Minute,
+		Limit: 100,
+	})
+	mw = ratelimit.RateLimiter(store, &ratelimit.Options{
+		ErrorHandler: errorHandler,
+		KeyFunc: keyFunc,
+	})
+
 	setupTmpl(r)
 	setupAssets(r)
 	setupGlobals(r)
 	setupRoutes(r)
 
 	r.Run(":8080")
+}
+
+func keyFunc(c *gin.Context) string {
+	return c.ClientIP()
+}
+
+func errorHandler(c *gin.Context, info ratelimit.Info) {
+	c.String(429, "Too many requests. Try again in "+time.Until(info.ResetTime).String())
 }
 
 // setupTmpl parses HTML templates from the filesystem.
@@ -83,7 +104,7 @@ func setupGlobals(r *gin.Engine) {
 
 // setupRoutes initializes the routes for the application.
 func setupRoutes(r *gin.Engine) {
-	r.GET("/", func(c *gin.Context) {
+	r.GET("/", mw, func(c *gin.Context) {
         c.HTML(http.StatusOK, "index.tmpl", gin.H{
             "links":        links,
             "bootstrapCss": c.MustGet("bootstrapCss"),
@@ -91,7 +112,7 @@ func setupRoutes(r *gin.Engine) {
         })
 	})
 
-	r.NoRoute(func(c *gin.Context) {
+	r.NoRoute(mw, func(c *gin.Context) {
         c.HTML(http.StatusNotFound, "404.tmpl", gin.H{
             "bootstrapCss": c.MustGet("bootstrapCss"),
             "bootstrapJs":  c.MustGet("bootstrapJs"),

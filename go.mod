@@ -4,10 +4,13 @@ go 1.21.3
 
 require (
 	cloud.google.com/go v0.65.0 // indirect
+	github.com/JGLTechnologies/gin-rate-limit v1.5.4 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/bytedance/sonic v1.9.1 // indirect
+	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
 	github.com/dghubble/oauth1 v0.7.0 // indirect
+	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dustin/go-broadcast v0.0.0-20211018055107-71439988bd91 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
@@ -38,6 +41,7 @@ require (
 	github.com/nullrocks/identicon v0.0.0-20180626043057-7875f45b0022 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.8 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/redis/go-redis/v9 v9.3.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.11 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
