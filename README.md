@@ -1,6 +1,6 @@
 # HomeLinks Web Application
 
-HomeLinks is a simple web application that allows you to manage and access your favorite links. It provides basic authentication for public IP addresses and serves as an example of a Go web application using the Gin framework, embedded files, and Docker containerization.
+HomeLinks is a simple web application that allows you to manage and access your favorite links.
 
 ## Prerequisites
 
@@ -73,15 +73,6 @@ The application will be accessible at http://localhost:8080.
 ### 4. Access the HomeLinks Web Application
 
 Open a web browser and navigate to http://localhost:8080 to access the HomeLinks web application.
-
-### Configuration
-
-Basic authentication is required for public access. Use the following credentials:
-
-| username | password     |
-| -------- | ------------ |
-| user     | pass         |
-
 
 ### Customization
 
