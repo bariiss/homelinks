@@ -77,8 +77,8 @@ Open a web browser and navigate to http://localhost:8080 to access the HomeLinks
 ### Configuration
 
 * Basic authentication is required for public access. Use the following credentials:
-> username: ```user```
-> pass: ```pass```
+username: ```user```
+pass: ```pass```
 
 ### Customization
 
