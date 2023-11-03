@@ -77,7 +77,6 @@ func setupGlobals(r *gin.Engine) {
 	r.Use(func(c *gin.Context) {
 		c.Set("bootstrapCss", "/assets/bootstrap/css/bootstrap.min.css")
 		c.Set("bootstrapJs", "/assets/bootstrap/js/bootstrap.bundle.min.js")
-		c.Set("customCss", "/assets/custom/css/custom.css")
 		c.Next()
 	})
 }
@@ -89,7 +88,6 @@ func setupRoutes(r *gin.Engine) {
             "links":        links,
             "bootstrapCss": c.MustGet("bootstrapCss"),
             "bootstrapJs":  c.MustGet("bootstrapJs"),
-            "customCss":    c.MustGet("customCss"),
         })
 	})
 
@@ -97,7 +95,6 @@ func setupRoutes(r *gin.Engine) {
         c.HTML(http.StatusNotFound, "404.tmpl", gin.H{
             "bootstrapCss": c.MustGet("bootstrapCss"),
             "bootstrapJs":  c.MustGet("bootstrapJs"),
-            "customCss":    c.MustGet("customCss"),
         })
 	})
 }

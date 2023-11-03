@@ -10,7 +10,7 @@
                     {{ range .links }}
                     <div class="row mb-3">
                         <div class="col">
-                            <a href="{{ .URL }}" class="btn custom-button" style="background-color: {{ .Color }}; color: {{ .TextColor }};" title="{{ .AltText }}">
+                            <a href="{{ .URL }}" class="btn btn-lg" style="background-color: {{ .Color }}; color: {{ .TextColor }}; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);" title="{{ .AltText }}" role="button">
                                 {{ .Text }}
                             </a>
                         </div>
