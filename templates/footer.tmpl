@@ -1,5 +1,6 @@
 {{ define "templates/footer.tmpl" }}
-        <script src="{{ .bootstrapJs }}"></script>
+    <!-- Defer the Bootstrap JavaScript -->
+    <script src="{{ .bootstrapJs }}" defer></script>
     </body>
 </html>
 {{ end }}

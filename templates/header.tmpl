@@ -5,7 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    <link href="{{ .bootstrapCss }}" rel="stylesheet">
+    <!-- Preload the Bootstrap CSS -->
+    <link rel="preload" href="{{ .bootstrapCss }}" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ .bootstrapCss }}"></noscript>
+    <!-- Inline critical CSS or add link to critical CSS here -->
     <link href="{{ .customCss }}" rel="stylesheet">
 </head>
 <body class="bg-dark text-white">
